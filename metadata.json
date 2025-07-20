@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Dental Invoice Cloud",
+  "description": "A cloud-based invoice management system for dental clinics using Supabase for authentication and storage. Manage your invoices and clinic profile from anywhere.",
+  "requestFramePermissions": []
+}
