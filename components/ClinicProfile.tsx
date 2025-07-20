@@ -91,7 +91,11 @@ export function ClinicProfile({ userId, profile, onClose, onSave, addToast }: Cl
     const profileUpdate = {
       id: userId,
       updated_at: new Date().toISOString(),
-      ...formData,
+      clinic_name: formData.clinic_name || null,
+      clinic_address: formData.clinic_address || null,
+      clinic_contact: formData.clinic_contact || null,
+      clinic_reg_no: formData.clinic_reg_no || null,
+      clinic_logo_url: formData.clinic_logo_url || null,
     };
 
     const { data, error } = await supabase.from('profiles').upsert(profileUpdate).select().single();
