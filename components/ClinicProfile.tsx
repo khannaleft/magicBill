@@ -4,7 +4,7 @@ import { Profile, ProfileFormData, ToastMessage } from '../types';
 
 interface ClinicProfileProps {
   userId: string;
-  profile: Profile;
+  profile: Profile | null;
   onClose: () => void;
   onSave: (profile: Profile) => void;
   addToast: (message: string, type: ToastMessage['type']) => void;
