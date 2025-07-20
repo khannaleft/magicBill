@@ -112,7 +112,7 @@ function App() {
       {showProfileModal && user && (
         <ClinicProfile
           userId={user.id}
-          profile={profile!}
+          profile={profile}
           onClose={() => setShowProfileModal(false)}
           onSave={updateProfile}
           addToast={addToast}
