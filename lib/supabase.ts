@@ -53,4 +53,17 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
  *    USING (auth.uid() = user_id)
  *    WITH CHECK (auth.uid() = user_id);
  *
+ * 5. ADD STORAGE POLICIES:
+ *    These policies allow authenticated users to upload to the 'logos' bucket
+ *    and allow anyone to read from it, which is necessary for logos on invoices.
+ *
+ *    -- Policy for logo uploads
+ *    CREATE POLICY "Authenticated users can upload logos." ON storage.objects
+ *    FOR INSERT TO authenticated
+ *    WITH CHECK (bucket_id = 'logos');
+ *
+ *    -- Policy for logo access
+ *    CREATE POLICY "Anyone can view logos." ON storage.objects
+ *    FOR SELECT
+ *    USING (bucket_id = 'logos');
  */
